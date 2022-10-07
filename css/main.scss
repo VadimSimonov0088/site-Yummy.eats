@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Custom Properties */
+
+:root {
+    --leading: 1.3em;
+}
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.hero-bg {
+    background-color: #307D99; 
+    background: url(../images/bg.jpg);
+    background-size: cover;
+    // background-position: 0% 0%; - change for X or Y position
+    color: white;
+    text-align: center;
+    padding: 4em;
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-weight: bold;
+        margin: 0 1em 3em;
+    }
+
+
+}
+
+header {
+    padding: 1em 0;
+}
+
+section {
+    margin: 0 1em;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 1em 0 1.2em;
+}
+
+span {
+    text-transform: uppercase;
+    display: block;
+    font-size: 1.4rem;
+    position: relative;
+    z-index: 1;
+}
+
+span::before {
+    content: '';
+    position: absolute;
+    width: 3.5em;
+    background: rgb(68, 236, 255);
+    height: .4em;
+    // bottom: 0;  under "The Healthy"
+    margin-top: 0.9em;
+    margin-left: -.3em;
+    z-index: -1;   
+}
+
+.form-container {
+    background-color: white;
+    margin: 2em -1em 0;
+    padding: 2em;
+    border-radius: 1em;
+
+    p {
+        color: gray;
+        margin-bottom: 1.5em;
+        font-weight: normal;
+        font-size: .9em;
+        margin-top: .3em;
+    }
+
+}
+
+label {
+    color: #2D7D98;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
+input[type=text] {
+    border: 1px solid #707070;
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: .5em;
+    margin-top: 1.2em;
+  
+}
+
+input[type=button] {
+    background-color: #F89104;
+    border: none;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding: 1em 0;
+    border-radius: .5em;
+    font-size: 1.2em;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(216, 126, 1);
+        font-weight: normal;
+    }
+ 
+}
+
+.authentic {
+    margin: 0;
+
+    img {
+        width: 100%;
+    }
+}
+
+.right-col {
+    text-align: center;
+    margin: 3em 1em;
+}
+
+h2 {
+    text-transform: uppercase;
+    position: relative;
+}
+
+h2::before {
+    content: ' ';
+    position: absolute;
+    width: 8em;
+    background: rgb(68, 236, 255);
+    height: .4em;
+    bottom: 0;
+    z-index: -1;
+    margin-left: -.3em;
+    margin-bottom: 0.25em; 
+    
+}
+
+p {
+    line-height: var(--leading);  //custom var
+}
+
+.overlay {                        //animate 'press button searching...' 
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,.9);
+    z-index: 1;
+    place-content: center;
+    color: white;
+    display: none;
+    opacity: 0;
+}
+
+.animate-overlay {
+    animation: overlay 3s forwards;
+}
+
+@media (min-width: 730px) {      //tablet
+
+    section {
+        margin: 0 4em;
+    }
+    .form-container {
+        margin: 2em -4em 0;
+    }
+
+}
+
+@media (min-width: 930px) {      //desktop
+    .hero-bg {
+        text-align: left;
+    
+
+        p {
+            margin: 0 0 3em;
+            margin-bottom: 0;
+
+       }
+
+        section {
+            width: 40%;
+      }
+    }
+
+    .form-container {
+        margin: 2em 0 0;
+        padding: 2em;
+        border-radius: .5em;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+        form {
+            display: flex;
+        }
+    
+
+        .form-left {
+            width: 70%;
+        }
+        label {
+            margin: 0;
+        }
+        input[type="button"] {
+            height: fit-content;
+            font-size: 1.1em;
+            margin-left: 1em;
+            margin-top: 2.45em;
+            padding: .7em 0;
+            width: 30%;
+        }
+    }
+    .authentic {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-areas:
+            "bowl content";           //change left-right
+
+        .right-col {                  //change left-right
+            grid-area: content;    
+        }
+    
+        img {                         //change left-right
+            grid-area: bowl;
+        }
+
+        .right-col {
+            padding: 0 10%;
+            text-align: left;
+            align-self: center;
+        }
+
+
+
+    }
+    
+}
+
+.top {
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-3em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes overlay {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
